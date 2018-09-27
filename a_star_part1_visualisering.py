@@ -63,11 +63,30 @@ def initParent():
 # Printing -----------------------------------------------------------------
 def printBoard(name, listToPrint):
     print(name)
-    for n in range(nx*ny):
-        if n % nx == 0: #modulo
-            print('\n')
-        print("{:2}".format(listToPrint[n]))
-    print('\n')
+
+    if(name == "Løsning"):
+        for n in range(nx*ny):
+            if n % nx == 0:
+                print('\n')
+
+            if n == A or n == B or listToPrint[n] == 'O':
+                print("{:3}".format(listToPrint[n])),
+
+            elif n in closedList:
+                print("{:3}".format('X')),
+            elif n in openList:
+                print("{:3}".format('*')),
+            else:    
+                print("{:3}".format(listToPrint[n])),
+        print('\n')
+
+
+    else:
+        for n in range(nx*ny):
+            if n % nx == 0:
+                print('\n')
+            print("{:3}".format(listToPrint[n])),
+        print('\n')
 
 #Initialisering ---------------------------------------------------------------------
 
